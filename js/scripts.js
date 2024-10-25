@@ -8,7 +8,7 @@ function adicionarUsuarioNaLista(usuario) {
 
 // Função para listar todos os usuários cadastrados
 async function listarUsuarios() {
-    const resposta = await fetch('http://sql10.freemysqlhosting.net/usuarios');
+    const resposta = await fetch('http://gerenciamento-usuarios-back-production.up.railway.app:8080/usuarios');
 
     if (resposta.ok) {
         const usuarios = await resposta.json();
@@ -33,7 +33,7 @@ document.getElementById('formUsuario').addEventListener('submit', async function
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
 
-    const resposta = await fetch('http://sql10.freemysqlhosting.net/usuarios', {
+    const resposta = await fetch('http://gerenciamento-usuarios-back-production.up.railway.app:8080/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email })
